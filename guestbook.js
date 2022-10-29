@@ -1,13 +1,13 @@
 /**
  * Web application
- */
-const apiUrl = '';
+ */https://github.com/chinaszzt/serverless-guestbook/blob/main/guestbook.js
+const apiUrl = 'https://us-south.functions.appdomain.cloud/api/v1/web/4248620f-e309-4995-b828-f541daf74cf9/guestbook';
 const guestbook = {
   // retrieve the existing guestbook entries
   get() {
     return $.ajax({
       type: 'GET',
-      url: `${apiUrl}/entries`,
+      url: `${apiUrl}/read-guestbook-entries-sequence.json`,
       dataType: 'json'
     });
   },
@@ -16,7 +16,7 @@ const guestbook = {
     console.log('Sending', name, email, comment)
     return $.ajax({
       type: 'PUT',
-      url: `${apiUrl}/entries`,
+      url: `${apiUrl}/save-guestbook-entry-sequence.json`,
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify({
         name,
